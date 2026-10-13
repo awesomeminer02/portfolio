@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CJ Petka | Engineering Portfolio</title>
+<meta name="description" content="Engineering portfolio of CJ Petka, Mechanical Engineering and Computer Science student at Northeastern University. Steel fabrication, 3D printed mechanisms, and Raspberry Pi Pico projects.">
+<meta property="og:title" content="CJ Petka | Engineering Portfolio">
+<meta property="og:description" content="Designed in CAD. Built by hand. Tested for real.">
+<meta property="og:image" content="images/rail-main.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='6' fill='%231E2328'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='700' font-size='28' fill='%23EDEFF1' text-anchor='middle'%3ECP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #EDEFF1;      /* cool drafting-paper gray */
+    --sheet: #F7F8F9;      /* a touch lighter, for the title block */
+    --ink: #1E2328;        /* graphite */
+    --steel: #5B6670;      /* secondary text */
+    --rule: #BFC6CD;       /* drawing lines */
+    --blue: #1F4FA8;       /* machinist's layout fluid: links and focus only */
+    --measure: 68ch;
+    --font: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
+    color-scheme: light;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--font); font-size: 1.0625rem; line-height: 1.55;
+    font-variation-settings: "wdth" 100;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: var(--blue); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+  .wrap { width: min(1120px, 100% - 3rem); margin-inline: auto; }
+
+  /* ---------- masthead ---------- */
+  .topbar {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+    padding-block: 1.5rem; border-bottom: 1px solid var(--rule);
+  }
+  .topbar h1 { margin: 0; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.01em; }
+  .topbar nav { display: flex; gap: 1.5rem; font-size: 0.98rem; }
+
+  .hero { padding-block: clamp(3rem, 9vw, 7rem) clamp(2.5rem, 6vw, 4.5rem); }
+  .tagline {
+    margin: 0; font-weight: 800; line-height: 0.94; letter-spacing: -0.015em;
+    font-size: clamp(2.7rem, 9.2vw, 7.4rem);
+    font-variation-settings: "wdth" 125;
+  }
+  .tagline span { display: block; }
+  /* the three lines step in like a stepped dimension stack */
+  .tagline span:nth-child(2) { padding-left: 0.9em; }
+  .tagline span:nth-child(3) { padding-left: 1.8em; }
+  .intro { max-width: 56ch; margin: 2.25rem 0 0; font-size: 1.15rem; color: var(--ink); }
+  .intro .quiet { color: var(--steel); }
+
+  /* project index: the four builds, by photo */
+  .index { list-style: none; margin: clamp(2.5rem, 6vw, 4rem) 0 0; padding: 0;
+           display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .index a { display: block; color: var(--ink); text-decoration: none; }
+  .index img { aspect-ratio: 4 / 3; width: 100%; object-fit: cover; border: 1px solid var(--rule); }
+  .index .name { display: block; margin-top: 0.6rem; font-weight: 650; line-height: 1.25; }
+  .index .when { display: block; color: var(--steel); font-size: 0.92rem; }
+  .index a:hover .name { color: var(--blue); }
+
+  /* ---------- projects ---------- */
+  .project { padding-block: clamp(3rem, 7vw, 5.5rem); border-top: 1px solid var(--rule); scroll-margin-top: 1rem; }
+  .project h2 {
+    margin: 0 0 1.75rem; font-weight: 750; line-height: 1.05; letter-spacing: -0.01em;
+    font-size: clamp(1.8rem, 3.6vw, 2.75rem); font-variation-settings: "wdth" 112; max-width: 22ch;
+  }
+
+  /* gallery rows: each figure's flex-grow is its aspect ratio, so a row's photos share one height */
+  .row { display: flex; gap: 0.75rem; }
+  .row + .row { margin-top: 0.75rem; }
+  .row figure { flex: var(--r) 1 0; min-width: 0; margin: 0; }
+  figure a { display: block; cursor: zoom-in; }
+  figure img { width: 100%; border: 1px solid var(--rule); background: var(--sheet); }
+  figcaption { margin-top: 0.45rem; font-size: 0.9rem; color: var(--steel); }
+
+  /* expo: one tall photo beside a stacked pair */
+  .split { display: grid; grid-template-columns: 1.37fr 1fr; gap: 0.75rem; align-items: stretch; }
+  .split > figure { margin: 0; display: flex; flex-direction: column; }
+  .split > figure a { flex: 1; }
+  .split > figure img { height: 100%; object-fit: cover; }
+  .split .stack { display: flex; flex-direction: column; gap: 0.75rem; }
+  .split .stack figure { margin: 0; }
+
+  .details { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 380px); gap: clamp(2rem, 5vw, 4rem);
+             margin-top: 2.25rem; align-items: start; }
+  .story { max-width: var(--measure); }
+  .story h3 { margin: 1.6rem 0 0.35rem; font-size: 1.02rem; font-weight: 700; }
+  .story h3:first-child { margin-top: 0; }
+  .story p { margin: 0; }
+  .story ul { margin: 0; padding-left: 1.15rem; }
+  .story li + li { margin-top: 0.3rem; }
+  .story .note { color: var(--steel); }
+
+  /* title block: the corner box of an engineering drawing, holding the project's metadata */
+  .titleblock { margin: 0; border: 1.5px solid var(--ink); background: var(--sheet);
+                display: grid; grid-template-columns: 1fr 1fr; }
+  .titleblock div { padding: 0.6rem 0.8rem 0.7rem; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .titleblock div:nth-child(2n) { border-right: 0; }
+  .titleblock .wide { grid-column: 1 / -1; border-right: 0; }
+  .titleblock div:last-child { border-bottom: 0; }
+  .titleblock dt { font-size: 0.78rem; color: var(--steel); letter-spacing: 0.02em; }
+  .titleblock dd { margin: 0.1rem 0 0; font-weight: 600; line-height: 1.3; }
+  .titleblock .fig dd { font-size: 1.65rem; font-weight: 750; line-height: 1.1; font-variation-settings: "wdth" 112; }
+
+  /* ---------- footer ---------- */
+  footer { border-top: 1px solid var(--rule); padding-block: 2.5rem 3rem; color: var(--steel); font-size: 0.95rem;
+           display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+  /* ---------- photo viewer ---------- */
+  dialog { border: 0; padding: 0; background: transparent; max-width: min(1400px, 94vw); max-height: 94vh; }
+  dialog::backdrop { background: rgba(30, 35, 40, 0.88); }
+  dialog img { max-width: 100%; max-height: 84vh; width: auto; margin-inline: auto; border: 0; }
+  dialog p { margin: 0.75rem 0 0; color: #E4E8EB; text-align: center; font-size: 0.98rem; }
+  dialog button {
+    position: fixed; top: 1rem; right: 1rem; font: inherit; font-weight: 650; color: var(--ink);
+    background: var(--paper); border: 0; padding: 0.5rem 0.9rem; cursor: pointer;
+  }
+
+  /* ---------- small screens ---------- */
+  @media (max-width: 800px) {
+    .index { grid-template-columns: repeat(2, 1fr); }
+    .details { grid-template-columns: 1fr; }
+    .split { grid-template-columns: 1fr; }
+    .split .stack { flex-direction: row; }
+    .split .stack figure { flex: 1; }
+  }
+  @media (max-width: 560px) {
+    .wrap { width: min(1120px, 100% - 2rem); }
+    .tagline span:nth-child(2) { padding-left: 0.5em; }
+    .tagline span:nth-child(3) { padding-left: 1em; }
+    .row { flex-wrap: wrap; }
+    .row figure { flex: 1 1 calc(50% - 0.375rem); }
+    .row figure:only-child { flex-basis: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="topbar">
+    <h1>CJ Petka</h1>
+    <nav aria-label="Contact">
+      <a href="mailto:petka.c@northeastern.edu">Email</a>
+      <a href="https://www.linkedin.com/in/cjpetka">LinkedIn</a>
+    </nav>
+  </div>
+
+  <section class="hero" aria-label="Introduction">
+    <p class="tagline"><span>Designed in CAD.</span><span>Built by hand.</span><span>Tested for real.</span></p>
+    <p class="intro">I study Mechanical Engineering and Computer Science at Northeastern University and graduate in December 2029.
+      <span class="quiet">I'm looking for a Spring 2027 co-op in mechanical design, manufacturing, robotics, or embedded systems.</span></p>
+
+    <ul class="index" aria-label="Projects">
+      <li><a href="#rail"><img src="images/rail-main.jpg" alt="" width="1600" height="955"><span class="name">Steel rail and trolley</span><span class="when">Spring 2024</span></a></li>
+      <li><a href="#expo"><img src="images/expo-main.jpg" alt="" width="1029" height="1600"><span class="name">React to the Pressure</span><span class="when">Fall 2025</span></a></li>
+      <li><a href="#drone"><img src="images/drone-main.jpg" alt="" width="1600" height="956"><span class="name">Drone package delivery</span><span class="when">Spring 2025</span></a></li>
+      <li><a href="#car"><img src="images/car-main.jpg" alt="" width="1600" height="1007"><span class="name">Spring-powered vehicle</span><span class="when">Fall 2023</span></a></li>
+    </ul>
+  </section>
+</header>
+
+<main>
+
+  <!-- Steel rail -->
+  <section class="project wrap" id="rail" aria-labelledby="rail-h">
+    <h2 id="rail-h">Steel Rail and Trolley Monitor Transport System</h2>
+    <div class="row">
+      <figure style="--r:1.675"><a href="images/rail-main.jpg"><img src="images/rail-main.jpg" alt="Curved monitor raised on its arm above a desk, mounted to the trolley on the wall rail" width="1600" height="955" loading="lazy"></a></figure>
+    </div>
+    <div class="row">
+      <figure style="--r:1.381"><a href="images/rail-cad.jpg"><img src="images/rail-cad.jpg" alt="Autodesk Inventor model of the rail, trolley, and monitor mount" width="1200" height="869" loading="lazy"></a><figcaption>Inventor model</figcaption></figure>
+      <figure style="--r:1.379"><a href="images/rail-trolley.jpg"><img src="images/rail-trolley.jpg" alt="Black steel trolley plate with bolts and a center mount" width="1200" height="870" loading="lazy"></a><figcaption>Trolley face</figcaption></figure>
+      <figure style="--r:1.379"><a href="images/rail-wheel.jpg"><img src="images/rail-wheel.jpg" alt="Underside view of a trolley wheel riding inside the steel rail" width="1200" height="870" loading="lazy"></a><figcaption>Wheel in the rail</figcaption></figure>
+    </div>
+    <div class="details">
+      <div class="story">
+        <h3>Goal</h3>
+        <p>Carry a VESA-mounted monitor along a fixed 13 ft span.</p>
+        <h3>What I did</h3>
+        <ul>
+          <li>Modeled the rail and adjustable trolley and produced technical drawings in Autodesk Inventor</li>
+          <li>MIG welded the steel structure across more than 100 welds</li>
+          <li>Turned custom trolley wheels on a lathe</li>
+        </ul>
+        <h3>Result</h3>
+        <p>Installed and tested the finished system.</p>
+      </div>
+      <dl class="titleblock">
+        <div><dt>Type</dt><dd>Self-developed project</dd></div>
+        <div><dt>Date</dt><dd>Spring 2024</dd></div>
+        <div class="fig"><dt>Steel span</dt><dd>13 ft</dd></div>
+        <div class="fig"><dt>MIG welds</dt><dd>100+</dd></div>
+        <div class="wide"><dt>Tools</dt><dd>Autodesk Inventor, MIG welding, lathe, steel fabrication</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- React to the Pressure -->
+  <section class="project wrap" id="expo" aria-labelledby="expo-h">
+    <h2 id="expo-h">React to the Pressure</h2>
+    <div class="split">
+      <figure><a href="images/expo-main.jpg"><img src="images/expo-main.jpg" alt="Yellow and black striped reactor-themed game with green, red, and orange buttons, a valve handle, and radiation symbols" width="1029" height="1600" loading="lazy"></a><figcaption>Finished game</figcaption></figure>
+      <div class="stack">
+        <figure><a href="images/expo-cad.jpg"><img src="images/expo-cad.jpg" alt="CAD renders of a cross-shaped valve handle and a three-blade handle" width="1130" height="1200" loading="lazy"></a><figcaption>My handle designs (CAD)</figcaption></figure>
+        <figure><a href="images/expo-wiring.jpg"><img src="images/expo-wiring.jpg" alt="Wiring inside the laser-cut enclosure, seen from the front" width="1129" height="1200" loading="lazy"></a><figcaption>Wiring inside the enclosure</figcaption></figure>
+      </div>
+    </div>
+    <div class="details">
+      <div class="story">
+        <h3>Goal</h3>
+        <p>Build an engineering-failure carnival game for the Fall 2025 Expo. Ours is a Chernobyl-style control panel: shut off the blinking lights before the reactor melts down.</p>
+        <h3>What I did</h3>
+        <ul>
+          <li>Laser cut the enclosure and drilled mounting holes for the inputs</li>
+          <li>Designed and 3D printed the valve and switch handles</li>
+          <li>Soldered and repaired wiring, then debugged the Python game code on the Pico</li>
+        </ul>
+        <h3>Result</h3>
+        <p>Demonstrated the finished game to the public at Northeastern's Engineering Expo.</p>
+      </div>
+      <dl class="titleblock">
+        <div><dt>Type</dt><dd>Cornerstone of Engineering 1, team of 4</dd></div>
+        <div><dt>Date</dt><dd>Fall 2025</dd></div>
+        <div class="fig"><dt>Player inputs</dt><dd>6</dd></div>
+        <div class="fig"><dt>Spent on materials</dt><dd>$7.50</dd></div>
+        <div class="wide"><dt>Tools</dt><dd>Laser cutting, 3D printing, CAD, soldering, Raspberry Pi Pico, Python</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Drone -->
+  <section class="project wrap" id="drone" aria-labelledby="drone-h">
+    <h2 id="drone-h">Drone Package Delivery System</h2>
+    <div class="row">
+      <figure style="--r:1.674"><a href="images/drone-main.jpg"><img src="images/drone-main.jpg" alt="DJI Mini 2 hovering indoors with the release mechanism and landing legs mounted underneath" width="1600" height="956" loading="lazy"></a></figure>
+    </div>
+    <div class="row">
+      <figure style="--r:1.379"><a href="images/drone-electronics.jpg"><img src="images/drone-electronics.jpg" alt="Raspberry Pi Pico electronics and wiring assembled on a desk" width="1200" height="870" loading="lazy"></a><figcaption>Electronics assembly</figcaption></figure>
+      <figure style="--r:1.379"><a href="images/drone-radio.jpg"><img src="images/drone-radio.jpg" alt="Radio module with a spring antenna on a breadboard" width="1200" height="870" loading="lazy"></a><figcaption>Radio module</figcaption></figure>
+      <figure style="--r:1.385"><a href="images/drone-dji.jpg"><img src="images/drone-dji.jpg" alt="DJI Mini 2 drone seen from above" width="331" height="239" loading="lazy"></a><figcaption>DJI Mini 2</figcaption></figure>
+    </div>
+    <div class="details">
+      <div class="story">
+        <h3>Goal</h3>
+        <p>Drop a small package from a DJI Mini 2, which has no built-in payload release, without relying on the drone's own controller.</p>
+        <h3>What I did</h3>
+        <ul>
+          <li>Designed a servo-actuated release mechanism and airframe mount sized to the drone's payload margin</li>
+          <li>Programmed paired Raspberry Pi Pico microcontrollers to trigger the release over shortwave radio</li>
+        </ul>
+        <h3>Result</h3>
+        <p>Remotely airdropped a small wheel of cheese into a waiting hand as part of a promposal.</p>
+      </div>
+      <dl class="titleblock">
+        <div><dt>Type</dt><dd>Self-developed project</dd></div>
+        <div><dt>Date</dt><dd>Spring 2025</dd></div>
+        <div class="wide"><dt>Tools</dt><dd>Raspberry Pi Pico (&times;2), MicroPython, servo actuation, radio link, CAD</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Spring car -->
+  <section class="project wrap" id="car" aria-labelledby="car-h">
+    <h2 id="car-h">Spring-Powered Competition Vehicle</h2>
+    <div class="row">
+      <figure style="--r:1.589"><a href="images/car-main.jpg"><img src="images/car-main.jpg" alt="Black 3D printed spring-powered vehicle with large spoked wheels on a classroom table" width="1600" height="1007" loading="lazy"></a></figure>
+    </div>
+    <div class="row">
+      <figure style="--r:2"><a href="images/car-gear.jpg"><img src="images/car-gear.jpg" alt="Slicer preview of a 3D printed drive gear" width="1200" height="600" loading="lazy"></a><figcaption>Sliced drive gear</figcaption></figure>
+      <figure style="--r:2"><a href="images/car-cad.jpg"><img src="images/car-cad.jpg" alt="CAD model of the vehicle frame and gear train" width="1200" height="600" loading="lazy"></a><figcaption>CAD model</figcaption></figure>
+    </div>
+    <div class="details">
+      <div class="story">
+        <h3>Goal</h3>
+        <p>Build a spring-powered vehicle that travels as far as possible.</p>
+        <h3>What I did</h3>
+        <ul>
+          <li>Modeled and 3D printed the vehicle with a 1:144 compound gear reduction</li>
+          <li>Tuned printed gear tolerances so the gear train meshed reliably at high reduction</li>
+        </ul>
+        <h3>Result</h3>
+        <p>Set the school distance record at 76 m.</p>
+      </div>
+      <dl class="titleblock">
+        <div><dt>Type</dt><dd>Engineering competition</dd></div>
+        <div><dt>Date</dt><dd>Fall 2023</dd></div>
+        <div class="fig"><dt>School record</dt><dd>76 m</dd></div>
+        <div class="fig"><dt>Gear reduction</dt><dd>1:144</dd></div>
+        <div class="wide"><dt>Tools</dt><dd>CAD modeling, 3D printing, gear train design</dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>&copy; 2026 CJ Petka, Boston, MA</span>
+  <a href="mailto:petka.c@northeastern.edu">petka.c@northeastern.edu</a>
+</footer>
+
+<dialog id="viewer" aria-label="Photo viewer">
+  <button type="button" data-close>Close</button>
+  <img alt="">
+  <p></p>
+</dialog>
+
+<script>
+  // Photo viewer: links open the full image without JavaScript; with it, they open in a dialog.
+  (function () {
+    const dlg = document.getElementById("viewer");
+    if (!dlg || typeof dlg.showModal !== "function") return;
+    const big = dlg.querySelector("img"), cap = dlg.querySelector("p");
+    document.querySelectorAll("figure a").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        const img = a.querySelector("img"), fc = a.parentElement.querySelector("figcaption");
+        big.src = a.getAttribute("href"); big.alt = img.alt;
+        cap.textContent = fc ? fc.textContent : img.alt;
+        dlg.showModal();
+      });
+    });
+    dlg.querySelector("[data-close]").addEventListener("click", function () { dlg.close(); });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+  })();
+</script>
+</body>
+</html>
