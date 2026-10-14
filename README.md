@@ -1,6 +1,11 @@
 # CJ Petka — Engineering Portfolio
 
-A single static page: `index.html` plus the `images/` folder. No build step, no dependencies.
+A static site with two sections, no build step, no dependencies:
+
+- `index.html` forwards visitors to `/portfolio/`
+- `portfolio/index.html` is the project portfolio; `resume/index.html` is the resume
+- `style.css` holds the styles both sections share
+- `images/` holds the photos; `Petka Resume.pdf` and `Petka_Portfolio_2026.pdf` are the downloadable PDFs
 
 ## Put it online with GitHub Pages
 
@@ -32,7 +37,10 @@ just update the `www` CNAME record to the new `username.github.io`.
 
 ## Editing
 
-- **Text:** everything is plain HTML in `index.html`; each project is one `<section>`.
+- **Text:** everything is plain HTML. Each project is one `<section>` in `portfolio/index.html`;
+  each resume section is one `<section>` in `resume/index.html`.
+- **Updating a PDF:** replace `Petka Resume.pdf` or `Petka_Portfolio_2026.pdf` with a new file
+  of the same name and every download link keeps working.
 - **Swapping a photo:** replace the file in `images/` with one of the same name.
   If the new photo has a different shape, also update that image's
   `width`/`height` attributes and the `--r` value on its `<figure>`

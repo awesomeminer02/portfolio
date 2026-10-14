@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CJ Petka | Engineering Portfolio</title>
+<meta name="description" content="Engineering portfolio of CJ Petka, Mechanical Engineering and Computer Science student at Northeastern University. Steel fabrication, 3D printed mechanisms, and Raspberry Pi Pico projects.">
+<meta property="og:title" content="CJ Petka | Engineering Portfolio">
+<meta property="og:image" content="https://cjpetka.com/images/rail-main.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='6' fill='%231E2328'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='700' font-size='28' fill='%23EDEFF1' text-anchor='middle'%3ECP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="wrap">
+  <div class="topbar">
+    <h1><a href="../portfolio/">CJ Petka</a></h1>
+    <nav aria-label="Contact">
+      <a href="mailto:petka.c@northeastern.edu">Email</a>
+      <a href="https://www.linkedin.com/in/cjpetka">LinkedIn</a>
+    </nav>
+  </div>
+  <nav class="sheets" aria-label="Site sections">
+    <a href="../portfolio/" aria-current="page"><small>Sheet 1 of 2</small>Portfolio</a>
+    <a href="../resume/"><small>Sheet 2 of 2</small>Resume</a>
+    <a class="pdf" href="../Petka_Portfolio_2026.pdf" download="CJ-Petka-Portfolio.pdf"><svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path d="M8 2.5v7.5M4.5 6.5 8 10l3.5-3.5M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><span><span class="long">Download </span>PDF</span></a>
+  </nav>
+  <section class="hero" aria-label="Introduction">
+    <p class="tagline"><span>Designed in CAD.</span><span>Built by hand.</span><span>Tested for real.</span></p>
+    <p class="intro">I study Mechanical Engineering and Computer Science at Northeastern University and graduate in December 2029.
+      <span class="quiet">I'm looking for a Spring 2027 co-op in mechanical design, manufacturing, robotics, or embedded systems.</span></p>
+
+    <ul class="index" aria-label="Projects">
+      <li><a href="#rail"><img src="../images/rail-main.jpg" alt="" width="1600" height="955"><span class="name">Steel rail and trolley</span><span class="when">Spring 2024</span></a></li>
+      <li><a href="#expo"><img src="../images/expo-main.jpg" alt="" width="1029" height="1600"><span class="name">React to the Pressure</span><span class="when">Fall 2025</span></a></li>
+      <li><a href="#drone"><img src="../images/drone-main.jpg" alt="" width="1600" height="956"><span class="name">Drone package delivery</span><span class="when">Spring 2025</span></a></li>
+      <li><a href="#car"><img src="../images/car-main.jpg" alt="" width="1600" height="1007"><span class="name">Spring-powered vehicle</span><span class="when">Fall 2023</span></a></li>
+    </ul>
+  </section>
+</header>
+
+<main>
+
+  <!-- Steel rail -->
+  <section class="project wrap" id="rail" aria-labelledby="rail-h">
+    <h2 id="rail-h">Steel Rail and Trolley Monitor Transport System</h2>
+    <div class="row">
+      <figure style="--r:1.675"><a href="../images/rail-main.jpg"><img src="../images/rail-main.jpg" alt="Curved monitor raised on its arm above a desk, mounted to the trolley on the wall rail" width="1600" height="955" loading="lazy"></a></figure>
+    </div>
+    <div class="row">
+      <figure style="--r:1.381"><a href="../images/rail-cad.jpg"><img src="../images/rail-cad.jpg" alt="Autodesk Inventor model of the rail, trolley, and monitor mount" width="1200" height="869" loading="lazy"></a><figcaption>Inventor model</figcaption></figure>
+      <figure style="--r:1.379"><a href="../images/rail-trolley.jpg"><img src="../images/rail-trolley.jpg" alt="Black steel trolley plate with bolts and a center mount" width="1200" height="870" loading="lazy"></a><figcaption>Trolley face</figcaption></figure>
+      <figure style="--r:1.379"><a href="../images/rail-wheel.jpg"><img src="../images/rail-wheel.jpg" alt="Underside view of a trolley wheel riding inside the steel rail" width="1200" height="870" loading="lazy"></a><figcaption>Wheel in the rail</figcaption></figure>
+    </div>
+    <div class="details">
+      <div class="story">
+        <h3>Goal</h3>
+        <p>Carry a VESA-mounted monitor along a fixed 13 ft span.</p>
+        <h3>What I did</h3>
+        <ul>
+          <li>Modeled the rail and adjustable trolley and produced technical drawings in Autodesk Inventor</li>
+          <li>MIG welded the steel structure across more than 100 welds</li>
+          <li>Turned custom trolley wheels on a lathe</li>
+        </ul>
+        <h3>Result</h3>
+        <p>Installed and tested the finished system.</p>
+      </div>
+      <dl class="titleblock">
+        <div><dt>Type</dt><dd>Self-developed project</dd></div>
+        <div><dt>Date</dt><dd>Spring 2024</dd></div>
+        <div class="fig"><dt>Steel span</dt><dd>13 ft</dd></div>
+        <div class="fig"><dt>MIG welds</dt><dd>100+</dd></div>
+        <div class="wide"><dt>Tools</dt><dd>Autodesk Inventor, MIG welding, lathe, steel fabrication</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- React to the Pressure -->
+  <section class="project wrap" id="expo" aria-labelledby="expo-h">
+    <h2 id="expo-h">React to the Pressure</h2>
+    <div class="split">
+      <figure><a href="../images/expo-main.jpg"><img src="../images/expo-main.jpg" alt="Yellow and black striped reactor-themed game with green, red, and orange buttons, a valve handle, and radiation symbols" width="1029" height="1600" loading="lazy"></a><figcaption>Finished game</figcaption></figure>
+      <div class="stack">
+        <figure><a href="../images/expo-cad.jpg"><img src="../images/expo-cad.jpg" alt="CAD renders of a cross-shaped valve handle and a three-blade handle" width="1130" height="1200" loading="lazy"></a><figcaption>My handle designs (CAD)</figcaption></figure>
+        <figure><a href="../images/expo-wiring.jpg"><img src="../images/expo-wiring.jpg" alt="Wiring inside the laser-cut enclosure, seen from the front" width="1129" height="1200" loading="lazy"></a><figcaption>Wiring inside the enclosure</figcaption></figure>
+      </div>
+    </div>
+    <div class="details">
+      <div class="story">
+        <h3>Goal</h3>
+        <p>Build an engineering-failure carnival game for the Fall 2025 Expo. Ours is a Chernobyl-style control panel: shut off the blinking lights before the reactor melts down.</p>
+        <h3>What I did</h3>
+        <ul>
+          <li>Laser cut the enclosure and drilled mounting holes for the inputs</li>
+          <li>Designed and 3D printed the valve and switch handles</li>
+          <li>Soldered and repaired wiring, then debugged the Python game code on the Pico</li>
+        </ul>
+        <h3>Result</h3>
+        <p>Demonstrated the finished game to the public at Northeastern's Engineering Expo.</p>
+      </div>
+      <dl class="titleblock">
+        <div><dt>Type</dt><dd>Cornerstone of Engineering 1, team of 4</dd></div>
+        <div><dt>Date</dt><dd>Fall 2025</dd></div>
+        <div class="fig"><dt>Player inputs</dt><dd>6</dd></div>
+        <div class="fig"><dt>Spent on materials</dt><dd>$7.50</dd></div>
+        <div class="wide"><dt>Tools</dt><dd>Laser cutting, 3D printing, CAD, soldering, Raspberry Pi Pico, Python</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Drone -->
+  <section class="project wrap" id="drone" aria-labelledby="drone-h">
+    <h2 id="drone-h">Drone Package Delivery System</h2>
+    <div class="row">
+      <figure style="--r:1.674"><a href="../images/drone-main.jpg"><img src="../images/drone-main.jpg" alt="DJI Mini 2 hovering indoors with the release mechanism and landing legs mounted underneath" width="1600" height="956" loading="lazy"></a></figure>
+    </div>
+    <div class="row">
+      <figure style="--r:1.379"><a href="../images/drone-electronics.jpg"><img src="../images/drone-electronics.jpg" alt="Raspberry Pi Pico electronics and wiring assembled on a desk" width="1200" height="870" loading="lazy"></a><figcaption>Electronics assembly</figcaption></figure>
+      <figure style="--r:1.379"><a href="../images/drone-radio.jpg"><img src="../images/drone-radio.jpg" alt="Radio module with a spring antenna on a breadboard" width="1200" height="870" loading="lazy"></a><figcaption>Radio module</figcaption></figure>
+      <figure style="--r:1.385"><a href="../images/drone-dji.jpg"><img src="../images/drone-dji.jpg" alt="DJI Mini 2 drone seen from above" width="331" height="239" loading="lazy"></a><figcaption>DJI Mini 2</figcaption></figure>
+    </div>
+    <div class="details">
+      <div class="story">
+        <h3>Goal</h3>
+        <p>Drop a small package from a DJI Mini 2, which has no built-in payload release, without relying on the drone's own controller.</p>
+        <h3>What I did</h3>
+        <ul>
+          <li>Designed a servo-actuated release mechanism and airframe mount sized to the drone's payload margin</li>
+          <li>Programmed paired Raspberry Pi Pico microcontrollers to trigger the release over shortwave radio</li>
+        </ul>
+        <h3>Result</h3>
+        <p>Remotely airdropped a small wheel of cheese into a waiting hand as part of a promposal.</p>
+      </div>
+      <dl class="titleblock">
+        <div><dt>Type</dt><dd>Self-developed project</dd></div>
+        <div><dt>Date</dt><dd>Spring 2025</dd></div>
+        <div class="wide"><dt>Tools</dt><dd>Raspberry Pi Pico (&times;2), MicroPython, servo actuation, radio link, CAD</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Spring car -->
+  <section class="project wrap" id="car" aria-labelledby="car-h">
+    <h2 id="car-h">Spring-Powered Competition Vehicle</h2>
+    <div class="row">
+      <figure style="--r:1.589"><a href="../images/car-main.jpg"><img src="../images/car-main.jpg" alt="Black 3D printed spring-powered vehicle with large spoked wheels on a classroom table" width="1600" height="1007" loading="lazy"></a></figure>
+    </div>
+    <div class="row">
+      <figure style="--r:2"><a href="../images/car-gear.jpg"><img src="../images/car-gear.jpg" alt="Slicer preview of a 3D printed drive gear" width="1200" height="600" loading="lazy"></a><figcaption>Sliced drive gear</figcaption></figure>
+      <figure style="--r:2"><a href="../images/car-cad.jpg"><img src="../images/car-cad.jpg" alt="CAD model of the vehicle frame and gear train" width="1200" height="600" loading="lazy"></a><figcaption>CAD model</figcaption></figure>
+    </div>
+    <div class="details">
+      <div class="story">
+        <h3>Goal</h3>
+        <p>Build a spring-powered vehicle that travels as far as possible.</p>
+        <h3>What I did</h3>
+        <ul>
+          <li>Modeled and 3D printed the vehicle with a 1:144 compound gear reduction</li>
+          <li>Tuned printed gear tolerances so the gear train meshed reliably at high reduction</li>
+        </ul>
+        <h3>Result</h3>
+        <p>Set the school distance record at 76 m.</p>
+      </div>
+      <dl class="titleblock">
+        <div><dt>Type</dt><dd>Engineering competition</dd></div>
+        <div><dt>Date</dt><dd>Fall 2023</dd></div>
+        <div class="fig"><dt>School record</dt><dd>76 m</dd></div>
+        <div class="fig"><dt>Gear reduction</dt><dd>1:144</dd></div>
+        <div class="wide"><dt>Tools</dt><dd>CAD modeling, 3D printing, gear train design</dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>&copy; 2026 CJ Petka, Boston, MA</span>
+  <a href="mailto:petka.c@northeastern.edu">petka.c@northeastern.edu</a>
+</footer>
+<dialog id="viewer" aria-label="Photo viewer">
+  <button type="button" data-close>Close</button>
+  <img alt="">
+  <p></p>
+</dialog>
+
+<script>
+  // Photo viewer: links open the full image without JavaScript; with it, they open in a dialog.
+  (function () {
+    const dlg = document.getElementById("viewer");
+    if (!dlg || typeof dlg.showModal !== "function") return;
+    const big = dlg.querySelector("img"), cap = dlg.querySelector("p");
+    document.querySelectorAll("figure a").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        const img = a.querySelector("img"), fc = a.parentElement.querySelector("figcaption");
+        big.src = a.getAttribute("href"); big.alt = img.alt;
+        cap.textContent = fc ? fc.textContent : img.alt;
+        dlg.showModal();
+      });
+    });
+    dlg.querySelector("[data-close]").addEventListener("click", function () { dlg.close(); });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+  })();
+</script>
+</body>
+</html>
